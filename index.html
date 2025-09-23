@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Oval Labs - Pioneering the Future of Technology</title>
+    <meta name="description" content="The Oval Labs - Advanced research and development in Semiconductors, Post Quantum Cryptography, AI, and EDA Tools">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Sophisticated Tech Color Palette */
+            --primary-bg: #0f172a;          /* Deep slate blue */
+            --secondary-bg: #1e293b;         /* Lighter slate */
+            --accent-bg: #334155;            /* Card background */
+            --primary-text: #f8fafc;         /* Almost white */
+            --secondary-text: #cbd5e1;        /* Soft gray */
+            --accent-blue: #38bdf8;          /* Bright sky blue */
+            --accent-purple: #818cf8;        /* Soft purple */
+            --accent-green: #34d399;         /* Emerald green */
+            --accent-orange: #fb923c;        /* Warm orange */
+            --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            --gradient-secondary: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+            --gradient-warm: linear-gradient(135deg, #fb923c 0%, #fbbf24 100%);
+            --border-color: #475569;
+            --shadow-primary: 0 10px 40px rgba(56, 189, 248, 0.15);
+            --shadow-secondary: 0 10px 40px rgba(129, 140, 248, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-text);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        /* Hero Section - Domain Visualization */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 100px;
+            background: radial-gradient(circle at 30% 40%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(129, 140, 248, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .secondary-button {
+            background: transparent;
+            color: var(--primary-text);
+            border: 2px solid var(--accent-blue);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .secondary-button:hover {
+            background: var(--accent-blue);
+            color: var(--primary-bg);
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-secondary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Domain Circle Visualization */
+        .hero-visual {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .domain-circle {
+            position: relative;
+            width: 450px;
+            height: 450px;
+        }
+
+        .central-core {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120px;
+            height: 120px;
+            transform: translate(-50%, -50%);
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
+            animation: core-pulse 3s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        @keyframes core-pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .domain-node {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 5;
+        }
+
+        .domain-node:hover {
+            transform: scale(1.2);
+            z-index: 15;
+        }
+
+        .domain-node::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: inherit;
+            opacity: 0.3;
+            animation: node-ripple 2s ease-in-out infinite;
+        }
+
+        @keyframes node-ripple {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
+        /* Domain positions in circle */
+        .node-1 { 
+            top: 10%; left: 50%; 
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+        }
+        .node-2 { 
+            top: 30%; right: 10%; 
+            background: var(--gradient-secondary);
+        }
+        .node-3 { 
+            bottom: 30%; right: 10%; 
+            background: var(--gradient-warm);
+        }
+        .node-4 { 
+            bottom: 10%; left: 50%; 
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f472b6 0%, #c084fc 100%);
+        }
+        .node-5 { 
+            bottom: 30%; left: 10%; 
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+        .node-6 { 
+            top: 30%; left: 10%; 
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+
+        /* Connecting lines */
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            opacity: 0.4;
+            animation: line-pulse 3s ease-in-out infinite;
+        }
+
+        .line-1 {
+            top: 25%;
+            left: 50%;
+            width: 120px;
+            transform: translateX(-50%) rotate(45deg);
+        }
+
+        .line-2 {
+            top: 50%;
+            right: 20%;
+            width: 100px;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        .line-3 {
+            bottom: 25%;
+            left: 50%;
+            width: 120px;
+            transform: translateX(-50%) rotate(-45deg);
+        }
+
+        .line-4 {
+            top: 50%;
+            left: 20%;
+            width: 100px;
+            transform: translateY(-50%) rotate(90deg);
+        }
+
+        @keyframes line-pulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Domain labels */
+        .domain-label {
+            position: absolute;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--secondary-text);
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .domain-node:hover + .domain-label {
+            opacity: 1;
+        }
+
+        .label-1 { top: 5%; left: 50%; transform: translateX(-50%); }
+        .label-2 { top: 25%; right: 5%; }
+        .label-3 { bottom: 25%; right: 5%; }
+        .label-4 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+        .label-5 { bottom: 25%; left: 5%; }
+        .label-6 { top: 25%; left: 5%; }
+
+        /* Domains Section */
+        .domains {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2.5rem, 4vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .domain-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .domain-card {
+            background: var(--accent-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .domain-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .domain-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .domain-card p {
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 8rem 0;
+        }
+
+        .project-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .project-showcase:nth-child(even) {
+            direction: rtl;
+        }
+
+        .project-showcase:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .project-content h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-content p {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: var(--accent-bg);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-visual {
+            position: relative;
+            height: 400px;
+            background: var(--accent-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Team Section */
+        .team {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
+            background: var(--accent-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .team-member:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .team-member h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-member .role {
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .team-member p {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* EDA Tools Section */
+        .eda-tools {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .eda-preview {
+            background: var(--accent-bg);
+            border-radius: 30px;
+            padding: 4rem;
+            margin-top: 3rem;
+            border: 2px dashed var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eda-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--secondary-text);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-visual {
+                height: 400px;
+            }
+
+            .domain-circle {
+                width: 350px;
+                height: 350px;
+            }
+
+            .domain-node {
+                width: 60px;
+                height: 60px;
+                font-size: 1.2rem;
+            }
+
+            .central-core {
+                width: 80px;
+                height: 80px;
+                font-size: 1.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .project-showcase {
+                grid-template-columns: 1fr;
+            }
+
+            .project-showcase:nth-child(even) {
+                direction: ltr;
+            }
+
+            .domain-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Streamlined Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle background animation */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.05;
+            background: radial-gradient(circle at 25% 25%, var(--accent-blue) 0%, transparent 50%),
+                        radial-gradient(circle at 75% 75%, var(--accent-purple) 0%, transparent 50%);
+            animation: bg-shift 20s ease-in-out infinite;
+        }
+
+        @keyframes bg-shift {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        /* Domain rotation animation */
+        @keyframes domain-rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .rotating-container {
+            animation: domain-rotate 30s linear infinite;
+        }
+
+        .domain-node, .connection-line, .domain-label {
+            animation: domain-rotate 30s linear infinite reverse;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+    
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">OVAL LABS</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#domains">Domains</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#eda-tools">EDA Tools</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Domain Circle Visualization -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content fade-in">
+                <h1>Pioneering the Future of <span>Technology</span></h1>
+                <p>At The Oval Labs, we're pushing the boundaries of innovation across semiconductors, quantum cryptography, AI, and hardware security. Our cutting-edge research and EDA tools are shaping tomorrow's digital landscape.</p>
+                <div class="hero-buttons">
+                    <a href="#domains" class="cta-button">Explore Our Work</a>
+                    <a href="#projects" class="secondary-button">View Projects</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>6+</h3>
+                        <p>Research Domains</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>50+</h3>
+                        <p>Innovations</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>∞</h3>
+                        <p>Possibilities</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual fade-in">
+                <div class="domain-circle rotating-container">
+                    <!-- Central Core -->
+                    <div class="central-core">OVAL</div>
+                    
+                    <!-- Domain Nodes -->
+                    <div class="domain-node node-1" data-domain="Semiconductors">🔬</div>
+                    <div class="domain-label label-1">Semiconductors</div>
+                    
+                    <div class="domain-node node-2" data-domain="Quantum Crypto">🔐</div>
+                    <div class="domain-label label-2">Post Quantum Crypto</div>
+                    
+                    <div class="domain-node node-3" data-domain="Verification">✅</div>
+                    <div class="domain-label label-3">Design Verification</div>
+                    
+                    <div class="domain-node node-4" data-domain="Security">🛡️</div>
+                    <div class="domain-label label-4">Hardware Security</div>
+                    
+                    <div class="domain-node node-5" data-domain="AI">🤖</div>
+                    <div class="domain-label label-5">Artificial Intelligence</div>
+                    
+                    <div class="domain-node node-6" data-domain="EDA">🛠️</div>
+                    <div class="domain-label label-6">EDA Tools</div>
+                    
+                    <!-- Connection Lines -->
+                    <div class="connection-line line-1"></div>
+                    <div class="connection-line line-2"></div>
+                    <div class="connection-line line-3"></div>
+                    <div class="connection-line line-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Domains Section -->
+    <section class="domains" id="domains">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Research Domains</h2>
+                <p>Exploring the frontiers of technology through interdisciplinary research and innovation</p>
+            </div>
+            <div class="domain-grid">
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">🔬</div>
+                    <h3>Semiconductors & Chip Design</h3>
+                    <p>Advanced semiconductor research focusing on next-generation chip architectures, low-power design methodologies, and innovative fabrication techniques for the future of computing.</p>
+                </div>
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">🔐</div>
+                    <h3>Post Quantum Cryptography</h3>
+                    <p>Developing quantum-resistant cryptographic protocols and security frameworks to protect digital infrastructure in the quantum computing era.</p>
+                </div>
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">✅</div>
+                    <h3>Design Verification</h3>
+                    <p>Cutting-edge verification methodologies ensuring the reliability and correctness of complex digital systems through formal verification and advanced simulation techniques.</p>
+                </div>
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">🛡️</div>
+                    <h3>Hardware Security</h3>
+                    <p>Comprehensive hardware security solutions including side-channel attack resistance, secure boot implementations, and hardware-based trust anchors.</p>
+                </div>
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">🤖</div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>AI-driven optimization for chip design, machine learning acceleration hardware, and neural network architectures optimized for edge computing applications.</p>
+                </div>
+                <div class="domain-card fade-in">
+                    <div class="domain-icon">🛠️</div>
+                    <h3>EDA Tools Design</h3>
+                    <p>Next-generation Electronic Design Automation tools leveraging AI and quantum algorithms to revolutionize the chip design process from concept to fabrication.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Featured Projects</h2>
+                <p>Groundbreaking initiatives that are redefining technological boundaries</p>
+            </div>
+            
+            <div class="project-showcase fade-in">
+                <div class="project-content">
+                    <h3>Athestia - Post-Quantum Secure Named Data Networking</h3>
+                    <p>
+                        ATHESIA enhances future internet architecture with NDN and Dilithium cryptography, providing quantum-resistant security for your data communications. 
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Post-Quantum Cryptography</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Named Data Networks</span>
+                        <span class="tag">Packet Tracer</span>
+                        <span class="tag">Open Source</span>
+                    </div>
+                    <a href="#" class="cta-button">Learn More</a>
+                </div>
+                <div class="project-visual">
+                    <img src="media/athestia.png" width="100%" alt="Athestia Project Screenshot">
+                </div>
+            </div>
+
+            <div class="project-showcase fade-in">
+                <div class="project-content">
+                    <h3>Vaquita: A Portable Four Stage Pipeline RISC-V Vector CoProcessor</h3>
+                    <p>
+                        A CHISEL-based RISC-V Vector (RVV) v1.0 co-processor featuring a 4-stage optimized
+                        vector pipeline for high-performance vector processing.  The design ensures high
+                        throughput, low latency, and efficient data hazard resolution, seamlessly integrating
+                        with diverse RISC-V systems through a plug-and-play interface.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">AI Hardware</span>
+                        <span class="tag">Semiconductors</span>
+                        <span class="tag">Vector CoProcessor</span>
+                    </div>
+                    <a href="#" class="cta-button">Explore Project</a>
+                </div>
+                <div class="project-visual">
+                    <img src="media/vaquita.jpeg" width="100%" alt="Vector AI Accelerator Screenshot">
+                </div>
+            </div>
+
+            <div class="project-showcase fade-in">
+                <div class="project-content">
+                    <h3>Oxygen Simulator</h3>
+                    <p>
+                        Oxygen Simulator is an in-house build RISC-V ISA Simualtor that supports simulation for RV32/64 GC.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">EDA Tools</span>
+                        <span class="tag">Simulator</span>
+                        <span class="tag">RISC-V ISA</span>
+                    </div>
+                    <a href="#eda-tools" class="cta-button">Discover Tools</a>
+                </div>
+                <div class="project-visual">
+                   <img src="media/oxygen.jpeg" width="100%" alt="Oxygen Platform Screenshot">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Expert Team</h2>
+                <p>World-class researchers and engineers driving innovation forward</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member fade-in">
+                    <div class="member-avatar">DR</div>
+                    <h4>Dr. Farhan</h4>
+                    <p class="role">Chief Executive Officer</p>
+                    <p>Ph.D in Computer Networks from Malaysia.</p>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">TA</div>
+                    <h4>Talha Ahmed</h4>
+                    <p class="role">VP of AI Research</p>
+                    <p>Masters from South Korea</p>
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">SB</div>
+                    <h4>Shayan Baig</h4>
+                    <p class="role">Director of EDA Tools</p>
+                    <!-- <p>Bachelo</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">HS</div>
+                    <h4>Hafsa Shoaib</h4>
+                    <p class="role">Hardware Security Lead</p>
+                    <!-- <p>Expert in hardware security, side-channel attacks, and secure chip design methodologies.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">ML</div>
+                    <h4>Muhammad Latif</h4>
+                    <p class="role">Semiconductor Architect</p>
+                    <!-- <p>Specializes in advanced chip architectures, 3D IC design, and low-power optimization.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">AR</div>
+                    <h4>Abdul Rehman</h4>
+                    <p class="role">Verification & EDA Expert</p>
+                    <!-- <p>Formal verification specialist with expertise in complex digital system validation.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">SA</div>
+                    <h4>Saad Akhtar</h4>
+                    <p class="role">Verification & EDA Expert</p>
+                    <!-- <p>Formal verification specialist with expertise in complex digital system validation.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">KF</div>
+                    <h4>Kinza Fatima</h4>
+                    <p class="role">Verification & EDA Expert</p>
+                    <!-- <p>Formal verification specialist with expertise in complex digital system validation.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">SM</div>
+                    <h4>Saad Maqsood</h4>
+                    <p class="role">A.I Expert</p>
+                    <!-- <p>Formal verification specialist with expertise in complex digital system validation.</p> -->
+                </div>
+                <div class="team-member fade-in">
+                    <div class="member-avatar">SK</div>
+                    <h4>Shehroz Kashif</h4>
+                    <p class="role">A.I Expert</p>
+                    <!-- <p>Formal verification specialist with expertise in complex digital system validation.</p> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDA Tools Section -->
+    <section class="eda-tools" id="eda-tools">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>EDA Tools Suite</h2>
+                <p>Next-generation design automation tools powered by AI and quantum algorithms</p>
+            </div>
+            <div class="eda-preview fade-in">
+                <div class="eda-icon">🛠️</div>
+                <h3>UVM Verifier - Coming Soon</h3>
+                <p>We're developing revolutionary EDA tools that will transform chip design verification. Our platform will feature AI-driven UVM based Verification, and seamless integration with existing workflows.</p>
+                <div style="margin-top: 2rem;">
+                    <span class="tag">AI-Powered Optimization</span>
+                    <span class="tag">UVM Verification</span>
+                    <span class="tag">Platform-as-a-Service</span>
+                    <span class="tag">Open Source & Commercial Tools Compatible</span>
+                </div>
+                <a href="#" class="cta-button" style="margin-top: 2rem;">Join Beta Program</a>
+            </div>
+
+            <!-- <div class="eda-preview fade-in">
+                <div class="eda-icon">🛠️</div>
+                <h3>Burq - Coming Soon</h3>
+                <p>We're developing revolutionary EDA tools that will transform chip design. Our platform will feature AI-driven optimization, quantum-enhanced algorithms, and seamless integration with existing workflows.</p>
+                <div style="margin-top: 2rem;">
+                    <span class="tag">AI-Powered Optimization</span>
+                    <span class="tag">Quantum Algorithms</span>
+                    <span class="tag">Cloud-Native</span>
+                    <span class="tag">Open Source Core</span>
+                </div>
+                <a href="#" class="cta-button" style="margin-top: 2rem;">Join Beta Program</a>
+            </div> -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>The Oval Labs</h4>
+                <p>Pioneering the future of technology through advanced research in semiconductors, quantum cryptography, AI, and EDA tools.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Research</h4>
+                <ul>
+                    <li><a href="#domains">Semiconductors</a></li>
+                    <li><a href="#domains">Quantum Cryptography</a></li>
+                    <li><a href="#domains">AI & ML</a></li>
+                    <li><a href="#domains">Hardware Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Tools</h4>
+                <ul>
+                    <li><a href="#eda-tools">UVM Verifier</a></li>
+                    <li><a href="#">Quantum Simulator</a></li>
+                    <li><a href="#">Security Analyzer</a></li>
+                    <li><a href="#">Verification Suite</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Research Publications</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Oval Labs. All rights reserved. | Pioneering Tomorrow's Technology Today</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Domain node interactions
+        document.querySelectorAll('.domain-node').forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.3)';
+                this.style.zIndex = '20';
+                
+                // Add glow effect
+                this.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.6)';
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.zIndex = '5';
+                this.style.boxShadow = 'none';
+            });
+
+            // Click to scroll to domains section
+            node.addEventListener('click', function() {
+                document.getElementById('domains').scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Enhanced hover effects
+        document.querySelectorAll('.domain-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.01)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Pause rotation on hover
+        const rotatingContainer = document.querySelector('.rotating-container');
+        const domainNodes = document.querySelectorAll('.domain-node, .connection-line, .domain-label');
+        
+        rotatingContainer.addEventListener('mouseenter', function() {
+            this.style.animationPlayState = 'paused';
+            domainNodes.forEach(node => {
+                node.style.animationPlayState = 'paused';
+            });
+        });
+        
+        rotatingContainer.addEventListener('mouseleave', function() {
+            this.style.animationPlayState = 'running';
+            domainNodes.forEach(node => {
+                node.style.animationPlayState = 'running';
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroVisual = document.querySelector('.hero-visual');
+            if (heroVisual) {
+                heroVisual.style.transform = `translateY(${scrolled * 0.2}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
