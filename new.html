@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Oval Labs - Innovating Tomorrow's Technology</title>
+    <meta name="description" content="Leading research in Semiconductors, Quantum Cryptography, AI, and EDA Tools">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Modern Tech Color Palette */
+            --primary-bg: #ffffff;
+            --secondary-bg: #f9fafb;
+            --card-bg: #ffffff;
+            --primary-text: #111827;
+            --secondary-text: #6b7280;
+            --accent-blue: #3b82f6;
+            --accent-purple: #8b5cf6;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+            --gradient-tech: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+            --border-color: #e5e7eb;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+            --shadow-blue: 0 10px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary-bg);
+            color: var(--primary-text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Modern Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1.2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .navbar.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-tech);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            padding: 0.5rem 0;
+            display: inline-block;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-text);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-tech);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--gradient-tech);
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-blue);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.2);
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            width: 30px;
+            height: 20px;
+            position: relative;
+        }
+
+        .mobile-toggle span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-text);
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle span:nth-child(1) { top: 0; }
+        .mobile-toggle span:nth-child(2) { top: 9px; }
+        .mobile-toggle span:nth-child(3) { top: 18px; }
+
+        /* Modern Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b98120 0%, #3b82f620 100%);
+            color: var(--accent-green);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid #10b98140;
+        }
+
+        .hero-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title span {
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-tech);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-blue);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-blue);
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-blue);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-blue);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--secondary-text);
+            font-weight: 500;
+        }
+
+        /* Tech Visualization */
+        .tech-visual {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tech-grid {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .tech-node {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-node:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-blue);
+        }
+
+        .tech-node::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-tech);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .tech-node:hover::before {
+            opacity: 1;
+        }
+
+        .tech-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-tech);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .tech-label {
+            font-weight: 600;
+            font-size: 0.875rem;
+            color: var(--primary-text);
+        }
+
+        .center-node {
+            grid-column: 2;
+            grid-row: 2;
+            background: var(--gradient-tech);
+            color: white;
+            z-index: 2;
+        }
+
+        .center-node .tech-icon {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .center-node .tech-label {
+            color: white;
+        }
+
+        /* Featured Domains */
+        .section {
+            padding: 8rem 0;
+        }
+
+        .section-alt {
+            background: var(--secondary-bg);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-subtitle {
+            color: var(--accent-blue);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .section-desc {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            line-height: 1.8;
+        }
+
+        /* Domain Cards */
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .domain-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .domain-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-blue);
+        }
+
+        .domain-number {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--secondary-bg);
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .domain-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 1.75rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .domain-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .domain-desc {
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .domain-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s ease;
+        }
+
+        .domain-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Featured Projects */
+        .projects-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .project-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+            background: var(--card-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            transition: all 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-badge {
+            display: inline-block;
+            background: var(--accent-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .project-desc {
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .tag {
+            background: var(--secondary-bg);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: var(--accent-blue);
+            color: white;
+        }
+
+        .project-image {
+            height: 100%;
+            min-height: 400px;
+            background: linear-gradient(45deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .team-member {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-blue);
+        }
+
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--gradient-tech);
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            transition: all 0.4s ease;
+        }
+
+        .team-member:hover .member-avatar {
+            transform: scale(1.1);
+        }
+
+        .member-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .member-bio {
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Tools Section */
+        .tools-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 4rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tools-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-tech);
+        }
+
+        .tools-icon {
+            font-size: 4rem;
+            margin-bottom: 2rem;
+            background: var(--gradient-tech);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tools-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+        }
+
+        .tools-desc {
+            color: var(--secondary-text);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            font-size: 1.125rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-text);
+            color: white;
+            padding: 5rem 0 2rem;
+        }
+
+        .footer-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .footer-logo .logo-icon {
+            width: 48px;
+            height: 48px;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.8rem;
+        }
+
+        .footer-tagline {
+            color: #d1d5db;
+            line-height: 1.8;
+            font-size: 1.125rem;
+        }
+
+        .footer-links h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 3rem;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .tech-visual {
+                height: 400px;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                padding: 2rem;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s ease;
+                z-index: 999;
+            }
+
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .project-card {
+                grid-template-columns: 1fr;
+            }
+
+            .project-content {
+                order: 2;
+            }
+
+            .project-image {
+                order: 1;
+                min-height: 300px;
+            }
+
+            .domains-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .tech-visual {
+                height: 300px;
+            }
+
+            .tech-grid {
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .tech-node {
+                padding: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .tools-card {
+                padding: 2rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loading animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .center-node {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">
+                <div class="logo-icon">OL</div>
+                <div class="logo-text">OVAL LABS</div>
+            </a>
+            
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#domains" class="nav-link">Domains</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#team" class="nav-link">Team</a></li>
+                <li class="nav-item"><a href="#tools" class="nav-link">Tools</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-cta">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modern Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-tag">Leading Tech Innovation</div>
+                <h1 class="hero-title">Pioneering <span>Tomorrow's</span> Technology</h1>
+                <p class="hero-description">
+                    At The Oval Labs, we're redefining the future of semiconductors, quantum cryptography, 
+                    AI, and hardware security. Our groundbreaking research shapes the digital landscape.
+                </p>
+                <div class="hero-actions">
+                    <a href="#domains" class="btn-primary">Explore Our Work</a>
+                    <a href="#projects" class="btn-secondary">View Projects</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">6+</div>
+                        <div class="stat-label">Research Domains</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Innovations</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Possibilities</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tech-visual fade-in">
+                <div class="tech-grid">
+                    <div class="tech-node">
+                        <div class="tech-icon">🔬</div>
+                        <div class="tech-label">Semiconductors</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">🔐</div>
+                        <div class="tech-label">Quantum Crypto</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">🤖</div>
+                        <div class="tech-label">AI Research</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">🛡️</div>
+                        <div class="tech-label">Security</div>
+                    </div>
+                    <div class="tech-node center-node">
+                        <div class="tech-icon">⚡</div>
+                        <div class="tech-label">OVAL LABS</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">✅</div>
+                        <div class="tech-label">Verification</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">💡</div>
+                        <div class="tech-label">R&D</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">🛠️</div>
+                        <div class="tech-label">EDA Tools</div>
+                    </div>
+                    <div class="tech-node">
+                        <div class="tech-icon">🚀</div>
+                        <div class="tech-label">Innovation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Domains -->
+    <section class="section" id="domains">
+        <div class="section-header">
+            <div class="section-subtitle">Our Expertise</div>
+            <h2 class="section-title">Core Research Domains</h2>
+            <p class="section-desc">
+                We focus on cutting-edge technologies that are shaping the future of computing and security.
+            </p>
+        </div>
+        
+        <div class="domains-grid">
+            <div class="domain-card fade-in">
+                <div class="domain-number">01</div>
+                <div class="domain-icon" style="background: var(--gradient-tech);">🔬</div>
+                <h3 class="domain-title">Semiconductors & Chip Design</h3>
+                <p class="domain-desc">
+                    Advanced research in next-generation chip architectures, low-power design methodologies, 
+                    and innovative fabrication techniques for the future of computing.
+                </p>
+                <a href="#" class="domain-link">Learn More →</a>
+            </div>
+            
+            <div class="domain-card fade-in">
+                <div class="domain-number">02</div>
+                <div class="domain-icon" style="background: var(--gradient-success);">🔐</div>
+                <h3 class="domain-title">Post-Quantum Cryptography</h3>
+                <p class="domain-desc">
+                    Developing quantum-resistant cryptographic protocols and security frameworks to protect 
+                    digital infrastructure in the quantum computing era.
+                </p>
+                <a href="#" class="domain-link">Learn More →</a>
+            </div>
+            
+            <div class="domain-card fade-in">
+                <div class="domain-number">03</div>
+                <div class="domain-icon" style="background: var(--gradient-warm);">🤖</div>
+                <h3 class="domain-title">Artificial Intelligence</h3>
+                <p class="domain-desc">
+                    AI-driven optimization for chip design, machine learning acceleration hardware, and 
+                    neural network architectures for edge computing applications.
+                </p>
+                <a href="#" class="domain-link">Learn More →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section section-alt" id="projects">
+        <div class="section-header">
+            <div class="section-subtitle">Featured Work</div>
+            <h2 class="section-title">Innovative Projects</h2>
+            <p class="section-desc">
+                Groundbreaking initiatives that are redefining technological boundaries and pushing innovation forward.
+            </p>
+        </div>
+        
+        <div class="projects-container">
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div class="project-badge">Security Research</div>
+                    <h3 class="project-title">Athestia - Post-Quantum Secure NDN</h3>
+                    <p class="project-desc">
+                        ATHESIA enhances future internet architecture with Named Data Networking and Dilithium 
+                        cryptography, providing quantum-resistant security for your data communications.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Post-Quantum</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Networking</span>
+                        <span class="tag">Open Source</span>
+                    </div>
+                    <a href="#" class="btn-primary">Explore Project</a>
+                </div>
+                <div class="project-image">
+                    <img src="media/athestia.png" alt="Athestia Project">
+                </div>
+            </div>
+            
+            <div class="project-card fade-in">
+                <div class="project-content">
+                    <div class="project-badge">Hardware Design</div>
+                    <h3 class="project-title">Vaquita RISC-V Vector CoProcessor</h3>
+                    <p class="project-desc">
+                        A CHISEL-based RISC-V Vector co-processor featuring optimized vector pipeline 
+                        for high-performance computing with efficient data hazard resolution.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">RISC-V</span>
+                        <span class="tag">Hardware</span>
+                        <span class="tag">Vector Processing</span>
+                        <span class="tag">CoProcessor</span>
+                    </div>
+                    <a href="#" class="btn-primary">View Details</a>
+                </div>
+                <div class="project-image">
+                    <img src="media/vaquita.jpeg" alt="Vaquita Project">
+                </div>
+            </div>
+        </div>
+       </section>
+
+    <!-- Team Section -->
+    <section class="section" id="team">
+        <div class="section-header">
+            <div class="section-subtitle">Our Experts</div>
+            <h2 class="section-title">Meet Our Team</h2>
+            <p class="section-desc">
+                World-class researchers and engineers driving innovation forward with expertise across multiple domains.
+            </p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member fade-in">
+                <div class="member-avatar">DR</div>
+                <h3 class="member-name">Dr. Farhan</h3>
+                <div class="member-role">Chief Executive Officer</div>
+                <p class="member-bio">Ph.D in Computer Networks from Malaysia. Leading strategic vision and research direction.</p>
+            </div>
+            
+            <div class="team-member fade-in">
+                <div class="member-avatar">TA</div>
+                <h3 class="member-name">Talha Ahmed</h3>
+                <div class="member-role">VP of AI Research</div>
+                <p class="member-bio">Masters from South Korea. Expert in machine learning and neural network optimization.</p>
+            </div>
+            
+            <div class="team-member fade-in">
+                <div class="member-avatar">SB</div>
+                <h3 class="member-name">Shayan Baig</h3>
+                <div class="member-role">Director of EDA Tools</div>
+                <p class="member-bio">Leading development of next-generation Electronic Design Automation tools and platforms.</p>
+            </div>
+            
+            <div class="team-member fade-in">
+                <div class="member-avatar">HS</div>
+                <h3 class="member-name">Hafsa Shoaib</h3>
+                <div class="member-role">Hardware Security Lead</div>
+                <p class="member-bio">Specialist in hardware security, side-channel attacks, and secure boot implementations.</p>
+            </div>
+            
+            <div class="team-member fade-in">
+                <div class="member-avatar">ML</div>
+                <h3 class="member-name">Muhammad Latif</h3>
+                <div class="member-role">Semiconductor Architect</div>
+                <p class="member-bio">Expert in chip design, low-power methodologies, and semiconductor fabrication techniques.</p>
+            </div>
+            
+            <div class="team-member fade-in">
+                <div class="member-avatar">AR</div>
+                <h3 class="member-name">Abdul Rehman</h3>
+                <div class="member-role">Verification Expert</div>
+                <p class="member-bio">Specialized in design verification, formal methods, and advanced simulation techniques.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EDA Tools Section -->
+    <section class="section section-alt" id="tools">
+        <div class="section-header">
+            <div class="section-subtitle">Our Solutions</div>
+            <h2 class="section-title">Advanced EDA Tools</h2>
+            <p class="section-desc">
+                Next-generation design automation tools powered by AI and quantum algorithms to revolutionize chip design.
+            </p>
+        </div>
+        
+        <div class="tools-card fade-in">
+            <div class="tools-icon">🛠️</div>
+            <h3 class="tools-title">UVM Verifier Pro</h3>
+            <p class="tools-desc">
+                We're developing revolutionary EDA tools that will transform chip design verification. Our platform features 
+                AI-driven UVM verification, quantum optimization algorithms, and seamless integration with existing workflows. 
+                Built for the future of hardware design.
+            </p>
+            <div class="project-tags" style="justify-content: center; margin-bottom: 2rem;">
+                <span class="tag">AI-Powered</span>
+                <span class="tag">UVM Verification</span>
+                <span class="tag">Platform-as-a-Service</span>
+                <span class="tag">Quantum Ready</span>
+            </div>
+            <a href="#" class="btn-primary">Join Beta Program</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">
+                    <div class="logo-icon">OL</div>
+                    <div class="logo-text">OVAL LABS</div>
+                </a>
+                <p class="footer-tagline">
+                    Pioneering the future of technology through advanced research in semiconductors, 
+                    quantum cryptography, AI, and EDA tools.
+                </p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Research</h4>
+                <ul>
+                    <li><a href="#domains">Semiconductors</a></li>
+                    <li><a href="#domains">Quantum Cryptography</a></li>
+                    <li><a href="#domains">AI & ML</a></li>
+                    <li><a href="#domains">Hardware Security</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Projects</h4>
+                <ul>
+                    <li><a href="#projects">Athestia</a></li>
+                    <li><a href="#projects">Vaquita</a></li>
+                    <li><a href="#tools">UVM Verifier</a></li>
+                    <li><a href="#">Research Papers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="#">GitHub</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 The Oval Labs. All rights reserved. | Pioneering Tomorrow's Technology Today</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+            
+            // Animate hamburger to X
+            const spans = mobileToggle.querySelectorAll('span');
+            if (navMenu.classList.contains('active')) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.classList.remove('active');
+                const spans = mobileToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tech node hover effects
+        document.querySelectorAll('.tech-node').forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.style.zIndex = '10';
+            });
+            
+            node.addEventListener('mouseleave', function() {
+                this.style.zIndex = '1';
+            });
+        });
+
+        // Card hover effects
+        document.querySelectorAll('.domain-card, .team-member').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Project card image hover effect
+        document.querySelectorAll('.project-card').forEach(card => {
+            const img = card.querySelector('.project-image img');
+            if (img) {
+                card.addEventListener('mouseenter', () => {
+                    img.style.transform = 'scale(1.05)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    img.style.transform = 'scale(1)';
+                });
+            }
+        });
+
+        // Team member avatar animation
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mouseenter', function() {
+                const avatar = this.querySelector('.member-avatar');
+                if (avatar) {
+                    avatar.style.transform = 'scale(1.1) rotate(5deg)';
+                }
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                const avatar = this.querySelector('.member-avatar');
+                if (avatar) {
+                    avatar.style.transform = 'scale(1) rotate(0)';
+                }
+            });
+        });
+
+        // Initialize with navbar check
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        }
+    </script>
+</body>
+</html>

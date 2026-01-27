@@ -18,22 +18,27 @@
         }
 
         :root {
-            /* Sophisticated Tech Color Palette */
-            --primary-bg: #0f172a;          /* Deep slate blue */
-            --secondary-bg: #1e293b;         /* Lighter slate */
-            --accent-bg: #334155;            /* Card background */
-            --primary-text: #f8fafc;         /* Almost white */
-            --secondary-text: #cbd5e1;        /* Soft gray */
-            --accent-blue: #38bdf8;          /* Bright sky blue */
-            --accent-purple: #818cf8;        /* Soft purple */
-            --accent-green: #34d399;         /* Emerald green */
-            --accent-orange: #fb923c;        /* Warm orange */
-            --gradient-primary: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            --gradient-secondary: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
-            --gradient-warm: linear-gradient(135deg, #fb923c 0%, #fbbf24 100%);
-            --border-color: #475569;
-            --shadow-primary: 0 10px 40px rgba(56, 189, 248, 0.15);
-            --shadow-secondary: 0 10px 40px rgba(129, 140, 248, 0.15);
+            /* Original Colorful Theme - Purple-Blue Mix */
+            --primary-bg: #ffffff;           /* Clean white */
+            --secondary-bg: #f8fafc;         /* Very light gray */
+            --accent-bg: #ffffff;            /* Pure white for cards */
+            --primary-text: #1e293b;         /* Dark slate blue */
+            --secondary-text: #101113;        /* Medium gray */
+            --accent-blue: #0891b2;          /* Bright blue */
+            --accent-purple: #3a6aed;        /* Purple */
+            --accent-green: #059669;         /* Emerald green */
+            --accent-orange: #f97316;        /* Warm orange */
+            --accent-pink: #db2777;          /* Pink */
+            --accent-cyan: #0891b2;          /* Cyan */
+            --gradient-primary: linear-gradient(135deg, #064572 0%, #51b0d4 100%);
+            --gradient-secondary: linear-gradient(135deg, #059669 0%, #2563eb 100%);
+            --gradient-warm: linear-gradient(135deg, #f97316 0%, #f59e0b 100%);
+            --gradient-purple-pink: linear-gradient(135deg, #db2777 0%, #c084fc 100%);
+            --gradient-cyan-blue: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+            --gradient-green: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            --border-color: #e2e8f0;
+            --shadow-primary: 0 10px 40px rgba(37, 99, 235, 0.15);
+            --shadow-secondary: 0 10px 40px rgba(124, 58, 237, 0.15);
         }
 
         body {
@@ -49,7 +54,7 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.95);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
             padding: 1rem 0;
@@ -68,12 +73,19 @@
 
         .logo {
             font-size: 1.8rem;
-            font-weight: 800;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             cursor: pointer;
             z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 70px;
+            width: auto;
         }
 
         .nav-links {
@@ -91,7 +103,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary-text);
+            color: var(--accent-blue);
         }
 
         .nav-links a::after {
@@ -127,28 +139,6 @@
             box-shadow: var(--shadow-primary);
         }
 
-        /* Mobile Menu Button */
-        .mobile-menu-btn {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .mobile-menu-btn span {
-            display: block;
-            height: 3px;
-            width: 100%;
-            background-color: var(--primary-text);
-            border-radius: 3px;
-            transition: all 0.3s ease;
-        }
-
         /* Hero Section - Domain Visualization */
         .hero {
             min-height: 100vh;
@@ -158,9 +148,21 @@
             position: relative;
             overflow: hidden;
             padding-top: 100px;
-            background: radial-gradient(circle at 30% 40%, rgba(56, 189, 248, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 60%, rgba(129, 140, 248, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 50% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
+            background: linear-gradient(135deg, #a3cbf4 0%, #ffffff 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(249, 115, 22, 0.05) 0%, transparent 50%);
+            z-index: -1;
         }
 
         .hero-container {
@@ -201,7 +203,7 @@
 
         .secondary-button {
             background: transparent;
-            color: var(--primary-text);
+            color: var(--accent-blue);
             border: 2px solid var(--accent-blue);
             padding: 0.8rem 2rem;
             border-radius: 50px;
@@ -214,7 +216,7 @@
 
         .secondary-button:hover {
             background: var(--accent-blue);
-            color: var(--primary-bg);
+            color: white;
             transform: translateY(-2px);
         }
 
@@ -268,7 +270,7 @@
             font-size: 2rem;
             font-weight: 800;
             color: white;
-            box-shadow: 0 10px 40px rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.3);
             animation: core-pulse 3s ease-in-out infinite;
             z-index: 10;
         }
@@ -313,7 +315,7 @@
             100% { transform: scale(1.5); opacity: 0; }
         }
 
-        /* Domain positions in circle */
+        /* Domain positions in circle - Original Colorful */
         .node-1 { 
             top: 10%; left: 50%; 
             transform: translateX(-50%);
@@ -330,15 +332,15 @@
         .node-4 { 
             bottom: 10%; left: 50%; 
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #f472b6 0%, #c084fc 100%);
+            background: var(--gradient-purple-pink);
         }
         .node-5 { 
             bottom: 30%; left: 10%; 
-            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            background: var(--gradient-cyan-blue);
         }
         .node-6 { 
             top: 30%; left: 10%; 
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            background: var(--gradient-green);
         }
 
         /* Connecting lines */
@@ -387,11 +389,15 @@
         .domain-label {
             position: absolute;
             font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--secondary-text);
+            font-weight: 600;
+            color: var(--primary-text);
             white-space: nowrap;
             opacity: 0;
             transition: opacity 0.3s ease;
+            background: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .domain-node:hover + .domain-label {
@@ -442,19 +448,20 @@
         }
 
         .domain-card {
-            background: var(--accent-bg);
+            background: white;
             border: 1px solid var(--border-color);
             border-radius: 20px;
             padding: 2.5rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .domain-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-blue);
-            box-shadow: var(--shadow-primary);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
         }
 
         .domain-icon {
@@ -467,12 +474,14 @@
             justify-content: center;
             margin-bottom: 1.5rem;
             font-size: 1.5rem;
+            color: white;
         }
 
         .domain-card h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--primary-text);
         }
 
         .domain-card p {
@@ -483,6 +492,7 @@
         /* Projects Section */
         .projects {
             padding: 8rem 0;
+            background: linear-gradient(135deg, #6aa8e6 0%, #ffffff 100%);
         }
 
         .project-showcase {
@@ -491,6 +501,41 @@
             gap: 4rem;
             align-items: center;
             margin-bottom: 6rem;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 150px);
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .project-visual {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        video {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .info-note {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 14px;
+            background: #fff;
+            border-radius: 6px;
+            margin-top: 20px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .project-showcase:nth-child(even) {
@@ -505,6 +550,9 @@
             font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-text) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .project-content p {
@@ -522,7 +570,7 @@
         }
 
         .tag {
-            background: var(--accent-bg);
+            background: var(--secondary-bg);
             color: var(--accent-blue);
             padding: 0.5rem 1rem;
             border-radius: 50px;
@@ -534,85 +582,200 @@
         .project-visual {
             position: relative;
             height: 400px;
-            background: var(--accent-bg);
-            border-radius: 20px;
+           
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
+            
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        /* Team Section */
+        .project-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Team Section - UPDATED */
         .team {
             padding: 8rem 0;
             background: var(--secondary-bg);
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .leadership-section {
+            margin-bottom: 5rem;
         }
 
-        .team-member {
-            background: var(--accent-bg);
+        .leadership-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .leadership-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .leadership-member {
+            background: white;
             border-radius: 20px;
-            padding: 2rem;
+            padding: 2.5rem;
             text-align: center;
             transition: all 0.3s ease;
             border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
-        .team-member:hover {
-            transform: translateY(-3px);
+        .leadership-member:hover {
+            transform: translateY(-10px);
             border-color: var(--accent-blue);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
         }
 
-        .member-avatar {
-            width: 120px;
-            height: 120px;
+        .leadership-avatar {
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             background: var(--gradient-primary);
             margin: 0 auto 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 800;
+            color: white;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+        }
+
+        .leadership-member h4 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--primary-text);
+        }
+
+        .leadership-member .role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .leadership-member p {
+            color: var(--secondary-text);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Expert Team Section */
+        .expert-team-section {
+            margin-top: 4rem;
+            padding-top: 4rem;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .expert-team-title {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .team-member:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-text);
         }
 
         .team-member h4 {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary-text);
         }
 
         .team-member .role {
             color: var(--accent-blue);
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .team-member p {
             color: var(--secondary-text);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            line-height: 1.4;
         }
 
         /* EDA Tools Section */
         .eda-tools {
             padding: 8rem 0;
             text-align: center;
+            background: linear-gradient(135deg, #6aa8e6 0%, #ffffff 100%);
         }
 
         .eda-preview {
-            background: var(--accent-bg);
+            background: white;
             border-radius: 30px;
             padding: 4rem;
             margin-top: 3rem;
             border: 2px dashed var(--border-color);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
 
         .eda-icon {
@@ -623,11 +786,160 @@
             -webkit-text-fill-color: transparent;
         }
 
+        /* Contact Form Section - Updated */
+        .contact-form-section {
+            padding: 8rem 0;
+            background: var(--secondary-bg);
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-text);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-button {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-primary);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            color: white;
+            border-radius: 15px;
+            margin-top: 2rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* New styles for EmailJS form */
+        .form-error {
+            display: none;
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border-left: 4px solid #dc2626;
+        }
+        
+        .form-error.show {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .loading {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-text);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         /* Footer */
         footer {
-            background: var(--secondary-bg);
+            background: var(--primary-text);
             padding: 4rem 0 2rem;
             border-top: 1px solid var(--border-color);
+            color: white;
         }
 
         .footer-content {
@@ -643,6 +955,7 @@
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
+            color: white;
         }
 
         .footer-section ul {
@@ -654,21 +967,21 @@
         }
 
         .footer-section ul li a {
-            color: var(--secondary-text);
+            color: #cbd5e1;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-section ul li a:hover {
-            color: var(--accent-blue);
+            color: white;
         }
 
         .footer-bottom {
             text-align: center;
             padding-top: 2rem;
             margin-top: 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--secondary-text);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
         }
 
         /* Mobile Responsive Design */
@@ -691,6 +1004,11 @@
                 width: 100px;
                 height: 100px;
             }
+            
+            .leadership-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -706,7 +1024,7 @@
                 width: 80%;
                 max-width: 300px;
                 height: 100vh;
-                background: var(--secondary-bg);
+                background: white;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
@@ -785,6 +1103,12 @@
                 text-align: center;
             }
             
+            /* Contact Form */
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            
             /* Domain Cards */
             .domain-grid {
                 grid-template-columns: 1fr;
@@ -812,9 +1136,25 @@
                 font-size: 2rem;
             }
             
-            /* Team Section */
-            .team-grid {
+            /* Team Section - Updated for Mobile */
+            .leadership-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .leadership-member {
+                padding: 2rem;
+            }
+            
+            .leadership-avatar {
+                width: 120px;
+                height: 120px;
+                font-size: 2rem;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
             }
             
             /* EDA Tools */
@@ -829,7 +1169,7 @@
             }
             
             /* Adjust padding for mobile */
-            .hero, .domains, .projects, .team, .eda-tools {
+            .hero, .domains, .projects, .team, .eda-tools, .contact-form-section {
                 padding: 5rem 0;
             }
             
@@ -893,7 +1233,24 @@
                 font-size: 0.8rem;
             }
             
+            /* Team Section Mobile */
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .leadership-member h4 {
+                font-size: 1.3rem;
+            }
+            
+            .leadership-member .role {
+                font-size: 1rem;
+            }
+            
             .eda-preview {
+                padding: 1.5rem;
+            }
+            
+            .contact-form {
                 padding: 1.5rem;
             }
         }
@@ -951,7 +1308,11 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">OVAL LABS</div>
+            <div class="logo" style="font-family: 'Do Hyeon', sans-serif;">
+                <img src="./media/logo-bg.png" alt="Oval Labs Logo"/>
+                <img src="./media/ova.png" style="height:30px;"/>
+            </div>
+        
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <span></span>
                 <span></span>
@@ -963,9 +1324,9 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#eda-tools">EDA Tools</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#contact-form">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Get Started</a>
+            <a href="#contact-form" class="cta-button">Get Started</a>
         </div>
     </nav>
 
@@ -977,7 +1338,7 @@
                 <p>At The Oval Labs, we're pushing the boundaries of innovation across semiconductors, quantum cryptography, AI, and hardware security. Our cutting-edge research and EDA tools are shaping tomorrow's digital landscape.</p>
                 <div class="hero-buttons">
                     <a href="#domains" class="cta-button">Explore Our Work</a>
-                    <a href="#projects" class="secondary-button">View Projects</a>
+                    <a href="#contact-form" class="secondary-button">Join/Query</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -1074,132 +1435,105 @@
     <section class="projects" id="projects">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Featured Projects</h2>
+                <h2>Our Flagship Product</h2>
                 <p>Groundbreaking initiatives that are redefining technological boundaries</p>
             </div>
             
             <div class="project-showcase fade-in">
-                <div class="project-content">
-                    <h3>Athestia - Post-Quantum Secure Named Data Networking</h3>
-                    <p>
-                        ATHESIA enhances future internet architecture with NDN and Dilithium cryptography, providing quantum-resistant security for your data communications. 
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">Post-Quantum Cryptography</span>
-                        <span class="tag">Security</span>
-                        <span class="tag">Named Data Networks</span>
-                        <span class="tag">Packet Tracer</span>
-                        <span class="tag">Open Source</span>
-                    </div>
-                    <a href="#" class="cta-button">Learn More</a>
-                </div>
+                
                 <div class="project-visual">
-                    <!-- <div style="width: 100%; height: 100%; background: var(--gradient-primary); opacity: 0.1; display: flex; align-items: center; justify-content: center;"> -->
-                        <img src="media/athestia.png" width="100%">
-                    <!-- </div> -->
+                   <video width="600"  autoplay loop controls >
+    <source src="media/verimate.mp4" type="video/mp4">
+    Your browser does not support video.
+  </video>
                 </div>
             </div>
 
-            <div class="project-showcase fade-in">
-                <div class="project-content">
-                    <h3>Vaquita: A Portable Four Stage Pipeline RISC-V Vector CoProcessor</h3>
-                    <p>
-                        A CHISEL-based RISC-V Vector (RVV) v1.0 co-processor featuring a 4-stage optimized
-                        vector pipeline for high-performance vector processing.  The design ensures high
-                        throughput, low latency, and efficient data hazard resolution, seamlessly integrating
-                        with diverse RISC-V systems through a plug-and-play interface.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">AI Hardware</span>
-                        <span class="tag">Semiconductors</span>
-                        <span class="tag">Vector CoProcessor</span>
-                    </div>
-                    <a href="#" class="cta-button">Explore Project</a>
-                </div>
-                <div class="project-visual">
-                    <img src="media/vaquita.jpeg" width="100%">
-                </div>
-            </div>
+            
 
-            <div class="project-showcase fade-in">
-                <div class="project-content">
-                    <h3>Oxygen Simulator</h3>
-                    <p>
-                        Oxygen Simulator is an in-house build RISC-V ISA Simualtor that supports simulation for RV32/64 GC.
-                    </p>
-                    <div class="project-tags">
-                        <span class="tag">EDA Tools</span>
-                        <span class="tag">Simulator</span>
-                        <span class="tag">RISC-V ISA</span>
-                    </div>
-                    <a href="#eda-tools" class="cta-button">Discover Tools</a>
-                </div>
-                <div class="project-visual">
-                    <img src="media/oxygen.jpeg" width="100%">
-                </div>
-            </div>
+            
         </div>
     </section>
 
-    <!-- Team Section -->
+    <!-- Team Section - UPDATED -->
     <section class="team" id="team">
         <div class="container">
             <div class="section-header fade-in">
                 <h2>Our Expert Team</h2>
                 <p>World-class researchers and engineers driving innovation forward</p>
             </div>
-            <div class="team-grid">
-                <div class="team-member fade-in">
-                    <div class="member-avatar">DR</div>
-                    <h4>Dr. Farhan</h4>
-                    <p class="role">Chief Executive Officer</p>
-                    <p>Ph.D in Computer Networks from Malaysia.</p>
+            
+            <!-- Leadership Section - Top 3 Designations -->
+            <div class="leadership-section fade-in">
+                <div class="leadership-title">Leadership Team</div>
+                <div class="leadership-grid">
+                    <div class="leadership-member">
+                        <div class="leadership-avatar">FAK</div>
+                        <h4>Dr. Farhan Ahmed Karim</h4>
+                        <p class="role">Chief Executive Officer</p>
+                        <p>Ph.D in Computer Networks from Malaysia with over 15 years of research experience.</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-avatar">TA</div>
+                        <h4>Talha Ahmed</h4>
+                        <p class="role">Cheif Technical Officer</p>
+                        <p>Masters from South Korea specializing in AI hardware and neural network optimization.</p>
+                    </div>
+                    <div class="leadership-member">
+                        <div class="leadership-avatar">SB</div>
+                        <h4>Shayan Baig</h4>
+                        <p class="role">Director of EDA Tools</p>
+                        <p>Expert in Electronic Design Automation with focus on AI-driven verification tools.</p>
+                    </div>
                 </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">TA</div>
-                    <h4>Talha Ahmed</h4>
-                    <p class="role">VP of AI Research</p>
-                    <p>Masters from South Korea</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">SB</div>
-                    <h4>Shayan Baig</h4>
-                    <p class="role">Director of EDA Tools</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">HS</div>
-                    <h4>Hafsa Shoaib</h4>
-                    <p class="role">Hardware Security Lead</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">ML</div>
-                    <h4>Muhammad Latif</h4>
-                    <p class="role">Semiconductor Architect</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">AR</div>
-                    <h4>Abdul Rehman</h4>
-                    <p class="role">Verification & EDA Expert</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">SA</div>
-                    <h4>Saad Akhtar</h4>
-                    <p class="role">Verification & EDA Expert</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">KF</div>
-                    <h4>Kinza Fatima</h4>
-                    <p class="role">Verification & EDA Expert</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">SM</div>
-                    <h4>Saad Maqsood</h4>
-                    <p class="role">A.I Expert</p>
-                </div>
-                <div class="team-member fade-in">
-                    <div class="member-avatar">SK</div>
-                    <h4>Shehroz Kashif</h4>
-                    <p class="role">A.I Expert</p>
+            </div>
+
+            <!-- Expert Team Section - Rest of the team -->
+            <div class="expert-team-section fade-in">
+                <div class="expert-team-title">Expert Team Members</div>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">HS</div>
+                        <h4>Hafsa Shoaib</h4>
+                        <p class="role">Hardware Security Lead</p>
+                        <p>Specialist in side-channel attacks and secure hardware design.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">ML</div>
+                        <h4>Muhammad Latif</h4>
+                        <p class="role">Semiconductor Architect</p>
+                        <p>Focus on next-generation chip architectures.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">AR</div>
+                        <h4>Abdul Rehman</h4>
+                        <p class="role">Verification & EDA Expert</p>
+                        <p>Specialized in formal verification methodologies.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">SA</div>
+                        <h4>Saad Akhtar</h4>
+                        <p class="role">Verification & EDA Expert</p>
+                        <p>Expert in UVM-based verification frameworks.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">KF</div>
+                        <h4>Kinza Fatima</h4>
+                        <p class="role">Verification & EDA Expert</p>
+                        <p>Focus on automated test generation.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">SM</div>
+                        <h4>Saad Maqsood</h4>
+                        <p class="role">A.I Expert</p>
+                        <p>Specialized in machine learning algorithms.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-avatar">SK</div>
+                        <h4>Shehroz Kashif</h4>
+                        <p class="role">A.I Expert</p>
+                        <p>Focus on neural network optimization.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1214,7 +1548,7 @@
             </div>
             <div class="eda-preview fade-in">
                 <div class="eda-icon">🛠️</div>
-                <h3>UVM Verifier - Coming Soon</h3>
+                <h3>Verimate - Coming Soon</h3>
                 <p>We're developing revolutionary EDA tools that will transform chip design verification. Our platform will feature AI-driven UVM based Verification, and seamless integration with existing workflows.</p>
                 <div style="margin-top: 2rem;">
                     <span class="tag">AI-Powered Optimization</span>
@@ -1222,7 +1556,78 @@
                     <span class="tag">Platform-as-a-Service</span>
                     <span class="tag">Open Source & Commercial Tools Compatible</span>
                 </div>
-                <a href="#" class="cta-button" style="margin-top: 2rem;">Join Beta Program</a>
+                <a href="#contact-form" class="cta-button" style="margin-top: 2rem;">Join Beta Program</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKING CONTACT FORM WITH EMAILJS -->
+    <section class="contact-form-section" id="contact-form">
+        <div class="form-container">
+            <div class="section-header fade-in">
+                <h2>Contact The Oval Labs</h2>
+                <p>Fill the form and we'll email you directly</p>
+            </div>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number (Optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="inquiry">Inquiry Type *</label>
+                        <select id="inquiry" name="inquiry" required>
+                            <option value="">Select One</option>
+                            <option value="Join Our Team">Join Our Team</option>
+                            <option value="Research Collaboration">Research Collaboration</option>
+                            <option value="Technical Query">Technical Query</option>
+                            <option value="Business Partnership">Business Partnership</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-button" id="submitBtn">
+                        Send Message
+                    </button>
+                </form>
+                
+                <!-- Success Message -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">✅</div>
+                    <h4>Message Sent Successfully!</h4>
+                    <p>Thank you for contacting The Oval Labs. We'll respond within 24 hours.</p>
+                    <button onclick="resetForm()" class="secondary-button" style="color: white; border-color: white; margin-top: 1rem;">
+                        Send Another Message
+                    </button>
+                </div>
+                
+                <!-- Error Message -->
+                <div class="form-error" id="errorMessage">
+                    <p id="errorText">There was an error sending your message. Please try again.</p>
+                </div>
+            </div>
+            
+            <!-- Note -->
+            <div style="margin-top: 2rem; text-align: center; color: #64748b; font-size: 0.9rem;">
+               
             </div>
         </div>
     </section>
@@ -1247,18 +1652,18 @@
                 <h4>Tools</h4>
                 <ul>
                     <li><a href="#eda-tools">UVM Verifier</a></li>
-                    <li><a href="#">Quantum Simulator</a></li>
-                    <li><a href="#">Security Analyzer</a></li>
-                    <li><a href="#">Verification Suite</a></li>
+                    <li><a href="#projects">Quantum Simulator</a></li>
+                    <li><a href="#projects">Security Analyzer</a></li>
+                    <li><a href="#projects">Verification Suite</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="#">GitHub</a></li>
-                    <li><a href="#">Research Publications</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#contact-form">Join/Query</a></li>
+                    <li><a href="#contact-form">Research Collaboration</a></li>
+                    <li><a href="#team">Careers</a></li>
+                    <li><a href="#contact-form">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -1267,15 +1672,25 @@
         </div>
     </footer>
 
+    <!-- Add EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
     <script>
+        // Initialize EmailJS with YOUR credentials
+        (function() {
+            emailjs.init("UKhC751b7ahKIyysN"); // Replace with your EmailJS Public Key
+        })();
+        
         // Mobile menu functionality
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
         
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinks.classList.toggle('active');
-            mobileMenuBtn.classList.toggle('active');
-        });
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                navLinks.classList.toggle('active');
+                mobileMenuBtn.classList.toggle('active');
+            });
+        }
         
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
@@ -1303,9 +1718,9 @@
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.style.background = 'rgba(15, 23, 42, 0.98)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
             } else {
-                navbar.style.background = 'rgba(15, 23, 42, 0.95)';
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
             }
         });
 
@@ -1332,9 +1747,7 @@
             node.addEventListener('mouseenter', function() {
                 this.style.transform = 'scale(1.3)';
                 this.style.zIndex = '20';
-                
-                // Add glow effect
-                this.style.boxShadow = '0 0 30px rgba(56, 189, 248, 0.6)';
+                this.style.boxShadow = '0 0 30px rgba(37, 99, 235, 0.6)';
             });
             
             node.addEventListener('mouseleave', function() {
@@ -1351,45 +1764,110 @@
             });
         });
 
-        // Enhanced hover effects
-        document.querySelectorAll('.domain-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.01)';
-            });
+        // Form submission with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
             
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Pause rotation on hover
-        const rotatingContainer = document.querySelector('.rotating-container');
-        const domainNodes = document.querySelectorAll('.domain-node, .connection-line, .domain-label');
-        
-        if (rotatingContainer) {
-            rotatingContainer.addEventListener('mouseenter', function() {
-                this.style.animationPlayState = 'paused';
-                domainNodes.forEach(node => {
-                    node.style.animationPlayState = 'paused';
-                });
-            });
+            // Get form values
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value || 'Not provided',
+                inquiry: document.getElementById('inquiry').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toLocaleString()
+            };
             
-            rotatingContainer.addEventListener('mouseleave', function() {
-                this.style.animationPlayState = 'running';
-                domainNodes.forEach(node => {
-                    node.style.animationPlayState = 'running';
-                });
-            });
-        }
-
-        // Parallax effect for hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroVisual = document.querySelector('.hero-visual');
-            if (heroVisual) {
-                heroVisual.style.transform = `translateY(${scrolled * 0.2}px)`;
+            // Validation
+            if (!formData.name || !formData.email || !formData.inquiry || !formData.message) {
+                showError('Please fill all required fields');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showError('Please enter a valid email address');
+                return;
+            }
+            
+            // Show loading
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+            document.getElementById('contactForm').classList.add('loading');
+            
+            try {
+                // Send email using EmailJS
+                // Replace these with YOUR EmailJS details
+                const response = await emailjs.send(
+                    'service_tgc6aot',      // EmailJS Service ID
+                    'template_sgi9myh',     // EmailJS Template ID
+                    {
+                        to_email: 'mahnoorismail011', // Your email address
+                        from_name: formData.name,
+                        from_email: formData.email,
+                        phone: formData.phone,
+                        inquiry: formData.inquiry,
+                        message: formData.message,
+                        timestamp: formData.timestamp
+                    }
+                );
+                
+                if (response.status === 200) {
+                    // Show success message
+                    document.getElementById('successMessage').classList.add('show');
+                    document.getElementById('contactForm').style.display = 'none';
+                    document.getElementById('errorMessage').classList.remove('show');
+                    
+                    // Reset form
+                    this.reset();
+                } else {
+                    throw new Error('Failed to send email');
+                }
+                
+            } catch (error) {
+                console.error('Email sending error:', error);
+                showError('Failed to send message. Please try again later.');
+                
+                // Fallback: Show email compose link
+                const fallbackLink = createFallbackEmail(formData);
+                document.getElementById('errorText').innerHTML += 
+                    `<br><br>Alternatively, <a href="${fallbackLink}" style="color: #0891b2; text-decoration: underline;">click here to send email manually</a>`;
+                
+            } finally {
+                // Reset button
+                submitBtn.innerHTML = 'Send Message';
+                submitBtn.disabled = false;
+                document.getElementById('contactForm').classList.remove('loading');
             }
         });
+        
+        function showError(message) {
+            document.getElementById('errorText').textContent = message;
+            document.getElementById('errorMessage').classList.add('show');
+        }
+        
+        function resetForm() {
+            document.getElementById('successMessage').classList.remove('show');
+            document.getElementById('contactForm').style.display = 'block';
+            document.getElementById('errorMessage').classList.remove('show');
+        }
+        
+        function createFallbackEmail(formData) {
+            const subject = `${formData.inquiry} Inquiry from ${formData.name}`;
+            const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Inquiry: ${formData.inquiry}
+
+Message:
+${formData.message}
+            `.trim();
+            
+            return `mailto:contact@ovallabs.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
     </script>
 </body>
 </html>
